@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+
+<h1>{{ post.title }}</h1>
+<div class="row">
+    <div class="col-md-4">
+        <div class="card md-2">
+        <div class="card-body">
+          <p>{{ post.body }}</p>
+          <br>
+          <p><h6>Дата создания:{{ post.created_on }} </h6></p>
+          <p> <h6>Последнее обновление:  {{ post.last_modified }} </h6></p>
+          <p> <h6>Категории: {{ post.categories.name }}</h6></p>
+
+        </div>
+        </div>
+    </div>
+</div>
+
+
+    <h5>   Коментарии: </h5>
+<p>{{ comment.body}}</p>
+{% for comment in comments %}
+    <div class="col-md-4">
+
+      <p>{{ comment.body}}</p>
+        <br>
+
+      </div>
+
+    {% endfor %}
+
+
+{% endblock %}
